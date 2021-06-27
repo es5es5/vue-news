@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import { ItemView, UserView } from '../views';
 import createListView from '../views/CreateListView';
-import bus from '../utils/bus.ts';
+import bus from '../utils/bus';
 import store from '../store/index.js';
 
 Vue.use(VueRouter);
