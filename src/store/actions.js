@@ -5,7 +5,7 @@ import {
   fetchUser,
   fetchItem,
   fetchList
-} from '../api/index.js';
+} from '../api/index';
 
 export default {
   FETCH_NEWS({ commit }) {
