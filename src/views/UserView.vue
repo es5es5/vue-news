@@ -5,7 +5,6 @@
       <div slot="userName">{{ fetchedUser.id }}</div>
       <span slot="userKarma">{{ fetchedUser.karma }} karma</span>
     </user-profile>
-
   </div>
 </template>
 
