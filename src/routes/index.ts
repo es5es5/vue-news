@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import VueRouter, { NavigationGuardNext, Route } from 'vue-router';
 import { ItemView, UserView } from '../views';
 import createListView from '../views/CreateListView';
 import bus from '../utils/bus';
@@ -18,7 +18,7 @@ export default new VueRouter({
       path: '/news',
       name: 'news',
       component: createListView('NewsView'),
-      beforeEnter(routeTo, routeFrom, next) {
+      beforeEnter(routeTo: Route, routeFrom: Route, next: NavigationGuardNext<Vue>) {
         bus.$emit('on:progress');
         store.dispatch('FETCH_LIST', routeTo.name)
           .then(() => next())
@@ -55,7 +55,7 @@ export default new VueRouter({
         const itemId = routeTo.params.id;
         store.dispatch('FETCH_ITEM', itemId)
           .then(() => next())
-          .catch(err => new Error('failed to fetch item details', err));
+          .catch(err => new Error('failed to fetch item details'));
       },
     },
     {
@@ -66,7 +66,7 @@ export default new VueRouter({
         const itemId = routeTo.params.id;
         store.dispatch('FETCH_USER', itemId)
           .then(() => next())
-          .catch(err => new Error('failed to fetch user profile', err));
+          .catch(err => new Error('failed to fetch user profile'));
       },
     }
   ]
