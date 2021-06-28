@@ -18,24 +18,31 @@
           <router-link :to="`/user/${news.user}`" class="link-text">{{ news.user }}</router-link>
         </small>
         <small v-if="news.time_ago" class="link-text">
-          {{ news.time_ago }}
+          {{ setTimeAgo(news) }}
         </small>
       </div>
     </li>
   </ul>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { NewsItem } from '@/api'
+import Vue, { PropType } from 'vue'
+export default Vue.extend({
   props: {
     items: {
-      type: Array,
-      require: true,
+      type: Array as PropType<NewsItem[]>,
+      required: true,
     }
   },
   computed: {
+  },
+  methods: {
+    setTimeAgo (news: NewsItem): string {
+      return news.time_ago.concat(', 2021')
+    }
   }
-}
+})
 </script>
 
 <style scoped>
