@@ -4,6 +4,6 @@ const state = {
   news: [] as NewsItem[]
 }
 
-type RootSate = typeof state
+type RootState = typeof state
 
-export { state, RootSate }
+export { state, RootState }
