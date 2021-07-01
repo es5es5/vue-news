@@ -13,7 +13,7 @@ const mutations = {
 
 type Mutations = typeof mutations
 
-export { mutations, Mutations }
+export { mutations, Mutations, MutationTypes }
 
 // export default {
 //   SET_NEWS(state, news) {

@@ -1,6 +1,6 @@
 // store/types.ts
 import { CommitOptions, Store } from "vuex";
-import { Mutations } from "./mutations";
+import { Mutations, MutationTypes } from "./mutations";
 import { RootState } from "./state";
 
 type MyMutations = {
@@ -11,8 +11,4 @@ type MyMutations = {
   ): ReturnType<Mutations[K]>;
 };
 
-export type MyStore = Omit<
-  Store<RootState>,
-  "commit"
-> &
-  MyMutations
+export type MyStore = Omit<Store<RootState>, "commit"> & MyMutations
