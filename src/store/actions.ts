@@ -15,9 +15,10 @@ type MyActionContext = {
 } & Omit<ActionContext<RootState, RootState>, "commit">;
 
 const actions = {
-  async [ActionTypes.FETCH_NEWS](context: MyActionContext, payload?: NewsItem[]) {
+  async [ActionTypes.FETCH_NEWS](context: MyActionContext, payload?: any) {
     const { data } = await fetchNews()
     context.commit(MutationTypes.SET_NEWS, data)
+    return data
   }
 }
 
